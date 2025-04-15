@@ -1,0 +1,208 @@
+import React, { useState } from 'react';
+import {
+    Button,
+    Input,
+    Text,
+    XStack,
+    YStack,
+    Image,
+} from 'tamagui';
+import { Controller, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import {
+    signUpSchema,
+    SignUpSchema,
+} from '~/lib/validationSchema';
+import { MaterialIcons, Feather } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
+
+const SignUpScreen = () => {
+    const router = useRouter();
+    const [isPasswordVisible, setPasswordVisible] =
+        useState(false);
+
+    const {
+        control,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<SignUpSchema>({
+        resolver: zodResolver(signUpSchema),
+    });
+
+    const onSubmit = (data: SignUpSchema) => {
+        console.log('Form Data:', data);
+    };
+
+    return (
+        <YStack flex={1} bg='#FFFFFF' jc={'space-between'}>
+            <YStack ai='center' px={'$4'} py={'$10'}>
+                <Image
+                    source={require('~/assets/images/logo.png')}
+                    w={70}
+                    h={70}
+                    mb={20}
+                />
+
+                <Text
+                    fontSize={25}
+                    fontFamily={'$Bold'}
+                    color='#0D0C22'
+                    mb={25}
+                >
+                    Welcome to PyramidScope
+                </Text>
+                <Text
+                    fontSize={18}
+                    color='#8A8995'
+                    mb={64}
+                    ff={'$Regular'}
+                >
+                    Please sign in to continue
+                </Text>
+
+                {/* Email Field */}
+                <YStack width='100%' gap={8} bg={'#FFFFFF'}>
+                    <Text
+                        fontSize={18}
+                        lineHeight={30}
+                        fontWeight={600}
+                        fontFamily={'$NunitoSan'}
+                        color={'#0D120E'}
+                    >
+                        Inspector ID
+                    </Text>
+                    <XStack
+                        borderRadius={12}
+                        px={16}
+                        py={14}
+                        ai='center'
+                    >
+                        <MaterialIcons
+                            name='email'
+                            size={22}
+                            color='#9CA3AF'
+                        />
+                        <Controller
+                            control={control}
+                            name='email'
+                            render={({
+                                field: { onChange, onBlur, value },
+                            }) => (
+                                <Input
+                                    placeholder='Enter your email'
+                                    borderWidth={0}
+                                    flex={1}
+                                    onChangeText={onChange}
+                                    onBlur={onBlur}
+                                    value={value}
+                                    bg={'#FFFFFF'}
+                                    fontFamily={'$Regular'}
+                                    fontSize={16}
+                                    lineHeight={28}
+                                />
+                            )}
+                        />
+                    </XStack>
+                    {errors.email && (
+                        <Text color='red'>{errors.email.message}</Text>
+                    )}
+                </YStack>
+
+                {/* Password Field */}
+                <YStack width='100%' gap={8} mt={24}>
+                    <Text
+                        fontSize={18}
+                        lineHeight={30}
+                        fontWeight={600}
+                        fontFamily={'$NunitoSan'}
+                        color={'#0D120E'}
+                    >
+                        Password
+                    </Text>
+                    <XStack
+                        bg='#FFFFFF'
+                        borderRadius={12}
+                        px={16}
+                        py={14}
+                        ai='center'
+                        jc='space-between'
+                    >
+                        <XStack ai='center' gap={8} flex={1}>
+                            <Feather
+                                name='lock'
+                                size={22}
+                                color='#9CA3AF'
+                            />
+                            <Controller
+                                control={control}
+                                name='password'
+                                render={({
+                                    field: { onChange, onBlur, value },
+                                }) => (
+                                    <Input
+                                        placeholder='Enter your password'
+                                        secureTextEntry={!isPasswordVisible}
+                                        borderWidth={0}
+                                        flex={1}
+                                        bg='#FFFFFF'
+                                        onChangeText={onChange}
+                                        onBlur={onBlur}
+                                        value={value}
+                                        fontFamily={'$Regular'}
+                                        fontSize={16}
+                                        lineHeight={28}
+                                    />
+                                )}
+                            />
+                        </XStack>
+
+                        {/* Eye Icon */}
+                        <Feather
+                            name={isPasswordVisible ? 'eye' : 'eye-off'}
+                            size={22}
+                            color='#9CA3AF'
+                            onPress={() =>
+                                setPasswordVisible(prev => !prev)
+                            }
+                        />
+                    </XStack>
+
+                    {errors.password && (
+                        <Text color='red'>
+                            {errors.password.message}
+                        </Text>
+                    )}
+                    <Text
+                        onPress={() => console.log('ok')}
+                        color='#2563EB'
+                        fontSize={14}
+                        mt={8}
+                        textAlign='right'
+                        width='100%'
+                    >
+                        Forgot Password?
+                    </Text>
+                </YStack>
+            </YStack>
+
+            {/* Register Button */}
+            <XStack ai={'center'} jc={'center'} pb={36}>
+                <Button
+                    width='90%'
+                    height={'$6'}
+                    mt={40}
+                    bg='#2563EB'
+                    color='white'
+                    fontSize={16}
+                    fontWeight='600'
+                    borderRadius={14}
+                    onPress={handleSubmit(onSubmit)}
+                >
+                    Register
+                </Button>
+            </XStack>
+        </YStack>
+    );
+};
+
+export default SignUpScreen;

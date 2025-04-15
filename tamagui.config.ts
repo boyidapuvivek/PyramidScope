@@ -109,6 +109,27 @@ const config = createTamagui({
         4: 20,
       },
     },
+    SemiBold: {
+      family: 'Bold',
+      size: {
+        1: 14,
+        2: 16,
+        3: 18,
+        4: 20,
+      },
+    },
+    NunitoSan: {
+      family: 'NunitoSan',
+      size: {
+        1: 14,
+        2: 16,
+        3: 18,
+        4: 20,
+      },
+      weight:{
+        600 : 'NunitoSan',
+      }
+  },
   },
   themes,
   tokens,

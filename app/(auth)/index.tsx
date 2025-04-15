@@ -2,10 +2,12 @@ import React, { useRef, useState } from 'react';
 import { Button, XStack, YStack, View } from 'tamagui';
 import PagerView from 'react-native-pager-view';
 import WelcomeScreen from '~/components/WelcomeScreen';
+import { useRouter } from 'expo-router';
 
 const MyPagerWithControls = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const pagerRef = useRef<PagerView>(null);
+  const router = useRouter();
 
   return (
     <YStack flex={1} bg={'#FFFFFF'}>
@@ -37,7 +39,7 @@ const MyPagerWithControls = () => {
         jc="space-around"
         ai="center"
         bg="$background"
-        paddingBottom={40}
+        paddingBottom={36}
       >
         <Button
           height={'$6'}
@@ -49,7 +51,14 @@ const MyPagerWithControls = () => {
           fontSize={16}
           bg={'#2563EB'}
           br={14}
-          onPress={() => pagerRef.current?.setPage(currentPage + 1)}
+          onPress={() => {
+            if (currentPage !== 2) {
+              pagerRef.current?.setPage(currentPage + 1);
+            } else {
+              router.push('/SignUpScreen');
+            }
+          }}
+
         >
           {currentPage !== 2 ? 'Next' : "Let's Go"}
         </Button>
