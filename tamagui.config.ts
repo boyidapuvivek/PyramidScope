@@ -91,6 +91,24 @@ const config = createTamagui({
   fonts: {
     body: bodyFont,
     heading: headingFont,
+    Regular: {
+      family: 'Regular',
+      size: {
+        1: 14,
+        2: 16,
+        3: 18,
+        4: 20,
+      },
+    },
+    Bold: {
+      family: 'Bold',
+      size: {
+        1: 14,
+        2: 16,
+        3: 18,
+        4: 20,
+      },
+    },
   },
   themes,
   tokens,
