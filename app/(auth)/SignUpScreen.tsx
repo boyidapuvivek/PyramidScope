@@ -13,8 +13,10 @@ import {
     signUpSchema,
     SignUpSchema,
 } from '~/lib/validationSchema';
-import { MaterialIcons, Feather } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import Sms from '../../assets/images/icons/sms.svg';
+import Lock from '../../assets/images/icons/lock.svg';
 
 const SignUpScreen = () => {
     const router = useRouter();
@@ -77,11 +79,7 @@ const SignUpScreen = () => {
                         py={14}
                         ai='center'
                     >
-                        <MaterialIcons
-                            name='email'
-                            size={22}
-                            color='#9CA3AF'
-                        />
+                        <Sms height={23} width={23} />
                         <Controller
                             control={control}
                             name='email'
@@ -128,11 +126,7 @@ const SignUpScreen = () => {
                         jc='space-between'
                     >
                         <XStack ai='center' gap={8} flex={1}>
-                            <Feather
-                                name='lock'
-                                size={22}
-                                color='#9CA3AF'
-                            />
+                            <Lock height={23} width={23} />
                             <Controller
                                 control={control}
                                 name='password'
