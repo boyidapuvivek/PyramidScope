@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Button, XStack, YStack, View } from 'tamagui';
 import PagerView from 'react-native-pager-view';
-import WelcomeScreen from '~/components/WelcomeScreen';
+import WelcomeScreen from '~/components/auth/WelcomeScreen';
 import { useRouter } from 'expo-router';
 
 const MyPagerWithControls = () => {

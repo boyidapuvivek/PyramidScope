@@ -10,19 +10,19 @@ type Props = {
 const pages = [
     {
         key: '1',
-        image: require('../assets/images/onboard1.png'),
+        image: require('../../assets/images/onboard1.png'),
         title: 'Welcome to Pyramidscope',
         subtitle: 'Streamline your inspection process with ease.',
     },
     {
         key: '2',
-        image: require('../assets/images/onboard2.png'),
+        image: require('../../assets/images/onboard2.png'),
         title: 'Track Your Inspections',
         subtitle: 'View schedules, reports, and compliance status in one place.',
     },
     {
         key: '3',
-        image: require('../assets/images/onboard3.png'),
+        image: require('../../assets/images/onboard3.png'),
         title: 'Smart Reporting',
         subtitle: 'Generate, manage, and submit reports effortlessly.',
     },

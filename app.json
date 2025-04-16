@@ -3,7 +3,7 @@
     "name": "PyramidScope",
     "slug": "PyramidScope",
     "version": "1.0.0",
-    "scheme": "PyramidScope",
+    "scheme": "pyramidscope",
     "web": {
       "bundler": "metro",
       "output": "static",
