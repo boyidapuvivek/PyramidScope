@@ -101,10 +101,10 @@ export const homeScreen = {
         priority: 'High',
       },
     ],
-    // data: [
-    //   { title: 'Fire Safety', fill: 85, tintColor: '#EF4444' },
-    //   { title: 'Zoning', fill: 92, tintColor: '#3B82F6' },
-    //   { title: 'Environmental', fill: 78, tintColor: '#22C55E' },
-    // ],
+    data: [
+      { title: 'Fire Safety', fill: 85, tintColor: '#EF4444' },
+      { title: 'Zoning', fill: 92, tintColor: '#3B82F6' },
+      { title: 'Environmental', fill: 78, tintColor: '#22C55E' },
+    ],
   };
   

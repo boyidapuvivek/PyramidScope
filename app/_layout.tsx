@@ -18,6 +18,7 @@ export default function Layout() {
     Light: require('../assets/fonts/Manrope-Light.ttf'),
     SemiBold: require('../assets/fonts/Manrope-SemiBold.ttf'),
     NunitoSans: require('../assets/fonts/NunitoSans-VariableFont.ttf'),
+    PoppinsMedium: require('../assets/fonts/Poppins-Medium.ttf'),
   });
 
   useEffect(() => {

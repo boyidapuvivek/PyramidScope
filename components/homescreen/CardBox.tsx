@@ -2,7 +2,7 @@ import React from 'react'
 import { XStack, YStack, Text, styled } from 'tamagui'
 import { router } from 'expo-router'
 import Inspection from '~/assets/images/icons/inspection.svg'
-import Reports from '~/assets/images/icons/reports.svg'
+import Reports from '~/assets/images/icons/totalreports.svg'
 import Violation from '~/assets/images/icons/violation.svg'
 import Guideline from '~/assets/images/icons/guidelines.svg'
 
@@ -10,29 +10,29 @@ const cardBoxData = [
     {
         title: 'New Inspection',
         Icon: Inspection,
-        bgColor: '#E1EDFD',
+        bgColor: '#EFF6FF',
         color: '#2563EB',
         route: './reports',
     },
     {
         title: 'Reports',
         Icon: Reports,
-        bgColor: '#FDECEA',
-        color: '#ED544E',
+        bgColor: '#FAF5FF',
+        color: '#9333EA',
         route: '/comingsoon',
     },
     {
         title: 'Violation',
         Icon: Violation,
-        bgColor: '#EAFBF5',
-        color: '#0CAF60',
+        bgColor: '#FCF4EA',
+        color: '#EA580C',
         route: '/comingsoon',
     },
     {
         title: 'Guidelines',
         Icon: Guideline,
-        bgColor: '#FEF6E8',
-        color: '#F6A609',
+        bgColor: '#EFFCF3',
+        color: '#16A34A',
         route: '/comingsoon',
     },
 ]
@@ -45,7 +45,6 @@ const Card = styled(YStack, {
     borderRadius: 10,
     justifyContent: 'center',
     gap: 12,
-    // pressable: true,
 })
 
 const CardBox = () => {

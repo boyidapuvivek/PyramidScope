@@ -129,8 +129,17 @@ const config = createTamagui({
       },
       weight:{
         600 : 'NunitoSan',
-      }
-  },
+      },
+    },
+      PoppinsMedium: {
+        family: 'PoppinsMedium',
+        size: {
+          1: 14,
+          2: 16,
+          3: 18,
+          4: 20,
+        },
+      },
   },
   themes,
   tokens,
