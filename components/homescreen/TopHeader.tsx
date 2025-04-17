@@ -8,9 +8,9 @@ import {
     Button,
     styled,
 } from 'tamagui'
-import { useWindowDimensions } from 'react-native'
 import Star from './Star'
 import { Ionicons } from '@expo/vector-icons'
+import { Colors } from '~/constants/colors'
 
 const NotificationIcon = styled(YStack, {
     position: 'relative',
@@ -37,14 +37,13 @@ const Dot = styled(YStack, {
 })
 
 const TopHeader = () => {
-    const { width } = useWindowDimensions()
 
     return (
-        <YStack height={270} bg="$white" borderBottomLeftRadius={52} borderBottomRightRadius={52}>
+        <YStack height={270} bg={Colors.background} borderBottomLeftRadius={52} borderBottomRightRadius={52}>
             <YStack
                 pt={80}
                 h={210}
-                w={width}
+                w={'100%'}
                 bg="#2563EB"
                 borderBottomLeftRadius={52}
                 borderBottomRightRadius={52}
@@ -58,7 +57,7 @@ const TopHeader = () => {
                 </YStack>
 
                 <XStack
-                    w={width * 0.9}
+                    w={'90%'}
                     ai="center"
                     gap="$2"
                     h={50}
@@ -86,22 +85,30 @@ const TopHeader = () => {
 
                 <XStack
                     mt={50}
-                    w={width * 0.9}
+                    w={'88%'}
                     minHeight={57}
                     bg="#FBFBFB"
                     borderRadius={12}
-                    borderColor="#EAEAFF"
+                    borderColor="#DFDFDF"
                     borderWidth={1.5}
                     ai="center"
-                    px={12}
+                    px={15}
+                    py={10}
                 >
                     <Input
                         placeholder="Search by Address or Permit No."
-                        placeholderTextColor="#999"
+                        placeholderTextColor="#9CA3AF"
                         flex={1}
                         size="$4"
-                        color="#333"
+                        bg="$colorTransparent"
+                        borderWidth={0}
+                        fontSize={18}
+                        numberOfLines={1}
+                        ellipse={true}
+                        style={{ minWidth: 0 }}
+                        pointerEvents='box-none'
                     />
+
                     <YStack bg="#6759FF" p={10} borderRadius={10} ml={8}>
                         <Ionicons name="search" size={20} color="#FFFFFF" />
                     </YStack>

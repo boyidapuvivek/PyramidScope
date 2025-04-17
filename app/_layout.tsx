@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { TamaguiProvider } from 'tamagui';
 import { StatusBar } from 'expo-status-bar';
 import config from '../tamagui.config';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
@@ -30,16 +30,14 @@ export default function Layout() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <SafeAreaProvider>
-        <TamaguiProvider config={config}>
-          <BottomSheetModalProvider>
-            <SafeAreaView style={{ flex: 1 }} edges={['top', 'bottom', 'left', 'right']}>
-              <Slot />
-              <StatusBar translucent />
-            </SafeAreaView>
-          </BottomSheetModalProvider>
-        </TamaguiProvider>
-      </SafeAreaProvider>
+      <TamaguiProvider config={config}>
+        <BottomSheetModalProvider>
+          <SafeAreaView style={{ flex: 1 }} edges={['bottom', 'left', 'right']}>
+            <Slot />
+            <StatusBar translucent />
+          </SafeAreaView>
+        </BottomSheetModalProvider>
+      </TamaguiProvider>
     </GestureHandlerRootView>
   );
 }

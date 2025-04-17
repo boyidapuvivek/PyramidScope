@@ -4,6 +4,7 @@ import { createMedia } from '@tamagui/react-native-media-driver';
 import { shorthands } from '@tamagui/shorthands';
 import { themes, tokens } from '@tamagui/themes';
 import { createTamagui, styled, SizableText, H1, YStack, Button as ButtonTamagui } from 'tamagui';
+import { Colors } from './constants/colors';
 
 const animations = createAnimations({
   bouncy: {
@@ -79,7 +80,7 @@ export const Button = styled(ButtonTamagui, {
 const config = createTamagui({
   light: {
     color: {
-      background: 'gray',
+      background: '#FFFFFF',
       text: 'black',
     },
   },
